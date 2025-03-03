@@ -1,13 +1,13 @@
-pub(crate) struct Body {
-    pub(crate) id: i32,
-    pub(crate) position: Vector,
-    pub(crate) velocity: Vector,
-    pub(crate) mass: f64,
+pub struct Body {
+    pub id: i32,
+    pub position: Vector,
+    pub velocity: Vector,
+    pub mass: f64,
 }
 
-pub(crate) struct Vector {
-    pub(crate) x: f64,
-    pub(crate) y: f64,
+pub struct Vector {
+    pub x: f64,
+    pub y: f64,
 }
 
 impl Clone for Vector {
@@ -36,7 +36,7 @@ const G: f64 = 1.0;
 // Smaller time step for better numerical stability
 const TIME: f64 = 0.01;
 
-pub(crate) fn update(bodies: &Vec<Body>) -> Vec<Body> {
+pub fn update(bodies: &[Body]) -> Vec<Body> {
     let mut new_bodies = Vec::new();
     
     // First calculate all accelerations
